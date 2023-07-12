@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'kanit', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+
+}
+
+.to_do_list_container {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(#064136, #CAFFC1);
+
+}
+
+
+.container_input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  width: min(650px, 90%);
+  align-items: center;
+}
