@@ -1,6 +1,5 @@
 //Libs
-import { useState } from "react";
-import { HiOutlineTrash } from "react-icons/hi";
+import { useEffect, useState } from "react";
 
 //Components
 import { Button } from "./Components/button";
@@ -13,6 +12,19 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   const [toDos, setToDos] = useState<string[]>([]);
+
+  useEffect(() => {
+    const localStorageTodos = localStorage.getItem("todos");
+
+    if (localStorageTodos) {
+      const parsedTodos = JSON.parse(localStorageTodos) as string[];
+      setToDos(parsedTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(toDos));
+  }, [toDos]);
 
   return (
     <Flex direction="column" gap="2rem" className="to_do_list_container">
@@ -44,17 +56,14 @@ function App() {
         </Flex>
         <Flex direction="column" gap="1rem" style={{ width: "100%" }}>
           {toDos.map((todo, index) => (
-            <ToDoItem text={todo} key={index}>
-              <HiOutlineTrash
-                color="#7e0000"
-                cursor="pointer"
-                fontSize="1.2rem"
-                onClick={() => {
-                  const newToDos = toDos.filter((item) => item !== todo);
-                  setToDos(newToDos);
-                }}
-              />
-            </ToDoItem>
+            <ToDoItem
+              text={todo}
+              key={index}
+              onClickRemove={() => {
+                const newToDos = toDos.filter((item) => item !== todo);
+                setToDos(newToDos);
+              }}
+            />
           ))}
         </Flex>
       </div>
