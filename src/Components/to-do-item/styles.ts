@@ -9,9 +9,21 @@ export const StyledToDoItem = styled.div`
   justify-content: space-between;
   border-radius: 0.5rem;
   color: #d5ffec;
+  animation: scaleAnimation 0.3s;
 
   input[type="checkbox"]:checked {
     display: flex;
     border: solid 2px #69ffbc;
+  }
+
+  @keyframes scaleAnimation {
+    0% {
+      opacity: 0;
+      scale: 0.5;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
   }
 `;
