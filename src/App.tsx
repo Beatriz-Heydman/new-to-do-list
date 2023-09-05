@@ -34,6 +34,7 @@ function App() {
         </Typography>
         <Flex gap="2rem" style={{ width: "100%" }}>
           <Input
+            placeholder="Digite uma tarefa"
             style={{ width: "100%" }}
             value={inputValue}
             onChange={(event) => {

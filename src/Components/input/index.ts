@@ -10,4 +10,8 @@ export const Input = styled.input`
   border: none;
   border-radius: 0.5rem;
   color: #d5ffec;
+
+  &::placeholder {
+    color: #b3d8c7;
+  }
 `;
