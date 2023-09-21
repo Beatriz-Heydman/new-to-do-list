@@ -32,7 +32,7 @@ function App() {
         <Typography fontSize="3rem" color="#d5ffec">
           Lista de tarefas
         </Typography>
-        <Flex gap="2rem" style={{ width: "100%" }}>
+        <div className="add_task_content">
           <Input
             placeholder="Digite uma tarefa"
             style={{ width: "100%" }}
@@ -54,7 +54,7 @@ function App() {
           >
             Adicionar
           </Button>
-        </Flex>
+        </div>
         <Flex direction="column" gap="1rem" style={{ width: "100%" }}>
           {toDos.map((todo, index) => (
             <ToDoItem

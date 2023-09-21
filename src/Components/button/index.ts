@@ -16,4 +16,8 @@ export const Button = styled.button`
   &:hover {
     background-color: #007d66;
   }
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
 `;
